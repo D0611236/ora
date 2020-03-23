@@ -41,10 +41,9 @@ def callback():
 def handle_message(event):
     get = event.message.text
 #event.gessage.text接收使用者文字訊息
+    message = get
     if(get == '0'):
         message = TextSendMessage(text = 'QR')
-    else:
-        message = get
 #############################################
     line_bot_api.reply_message(event.reply_token, message)
 
