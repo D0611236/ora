@@ -45,8 +45,29 @@ def handle_message(event):
     get = event.message.text
 #event.gessage.text接收使用者文字訊息
 
-    if(get == '0'):
-        message = TextSendMessage(text = 'QR')
+    if(get == 'd'):
+        #print("Image Carousel")
+        message = TemplateSendMessage(
+        alt_text='ImageCarousel template',
+        template=ImageCarouselTemplate(
+            columns=[
+                ImageCarouselColumn(
+                    image_url='https://i.imgur.com/IbbQ1xo.jpg',
+                    action=MessageTemplateAction(
+                        label='postback1',
+                        text='postback text1'
+                    )
+                ),
+                ImageCarouselColumn(
+                    image_url='https://i.imgur.com/VQpvhMX.jpg',
+                    action=MessageTemplateAction(
+                        label='postback2',
+                        text='postback text2'
+                    )
+                )
+            ]
+        )
+        )
     else:
         message = TextSendMessage(text = get)
 
