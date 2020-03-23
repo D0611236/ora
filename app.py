@@ -44,7 +44,7 @@ def handle_message(event):
     if(get == '0'):
         message = TextSendMessage(text = 'QR')
     else:
-        message = event.message.text
+        message = get
 #############################################
     line_bot_api.reply_message(event.reply_token, message)
 
